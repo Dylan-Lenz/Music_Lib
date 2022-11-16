@@ -12,3 +12,7 @@ def get_all_songs(request):
     song = Song.objects.all()
     serializer = SongSerializer(song, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+def songs_by_id(request, pk):
+    song = Song.objects.filter(pk=pk)
+    serializer = SongSerializer(song, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)

@@ -119,3 +119,4 @@ try:
     from backend.local_settings import *
 except ImportError:
     pass
+
