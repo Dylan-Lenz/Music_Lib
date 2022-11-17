@@ -15,6 +15,10 @@ def songs_by_obj(request):
     if request.method == 'GET':
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
+        serializerData.is_valid()
+        serializerData.save()
+        return Response(serializerData.data, status=status.HTTP_201_CREATED)
+    elif request.method == 'PUT':
         if serializerData.is_valid():
             serializerData.save()
         return Response(serializerData.data, status=status.HTTP_201_CREATED)
