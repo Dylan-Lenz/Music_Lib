@@ -21,7 +21,7 @@ def songs_by_obj(request):
     elif request.method == 'PUT':
         if serializerData.is_valid():
             serializerData.save()
-        return Response(serializerData.data, status=status.HTTP_201_CREATED)
+        return Response(serializerData.data, status=status.HTTP_200_OK)
     return Response(serializerData.data, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'DELETE'])
